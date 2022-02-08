@@ -41,5 +41,3 @@ jobs:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
       - run: build
-      - name: The job has succeeded
-        if: ${{ success() }}
