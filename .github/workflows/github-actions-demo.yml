@@ -1,5 +1,8 @@
 name: GitHub Actions Demo
 on: [push]
+env:
+  continue: true
+  time: 3
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -24,3 +27,19 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+    steps:
+      - run: build
+      - name: The job has succeeded
+        if: ${{ success() }}
