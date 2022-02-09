@@ -1,3 +1,3 @@
 # github-action-demo
 
-[![GitHub Actions Demo](https://github.com/sylashsu/github-action-demo/actions/workflows/github-actions-demo.yml/badge.svg?branch=master)](https://github.com/sylashsu/github-action-demo/actions/workflows/github-actions-demo.yml)
+[![Build Status](https://github.com/sylashsu/github-action-demo/workflows/Run%20Tests/badge.svg?branch=master)](https://github.com/sylashsu/github-action-demo/actions?query=branch%3Amaster)
