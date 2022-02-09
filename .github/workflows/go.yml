@@ -14,19 +14,16 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
     - uses: actions/checkout@v2
-
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
         go-version: 1.17
-
-    - name:  move to backend folder
-      run: cd backend 
-
     - name: Build
       run: go build -v
-
     - name: Test
       run: go test -v
