@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '**.go'
+      - 'backend/**'
   pull_request:
     branches: [ main ]
     paths:
-      - '**.go'
+      - 'backend/**'
 
 jobs:
 
